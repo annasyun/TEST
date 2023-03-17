@@ -11,6 +11,15 @@ function App() {
         <h4>blog</h4>
       </div>
       <div className="list">
+        <span
+          onClick={() => {
+            let copy = [...title];
+            copy[0] = "changed";
+            setTitle(copy);
+          }}
+        >
+          🔥
+        </span>
         <h4>
           {title[0]}
           <span
