@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let [title, setTitle] = useState(["title1", "title2", "title3"]);
+  let [title, setTitle] = useState(["가구나라", "미미나라", "꿀나라"]);
   let [fire, setFire] = useState(0);
 
   return (
@@ -11,15 +11,6 @@ function App() {
         <h4>blog</h4>
       </div>
       <div className="list">
-        <span
-          onClick={() => {
-            let copy = [...title];
-            copy[0] = "changed";
-            setTitle(copy);
-          }}
-        >
-          🔥
-        </span>
         <h4>
           {title[0]}
           <span
@@ -41,6 +32,17 @@ function App() {
         <h4>{title[2]}</h4>
         <p>content</p>
       </div>
+      <Modal />
+    </div>
+  );
+}
+
+function Modal() {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
     </div>
   );
 }
