@@ -4,6 +4,10 @@ import "./App.css";
 function App() {
   let [title, setTitle] = useState(["가구나라", "미미나라", "꿀나라"]);
   let [fire, setFire] = useState(0);
+  let [modal, setModal] = useState(false);
+  const handleModal = () => {
+    setModal(!modal);
+  };
 
   return (
     <div className="App">
@@ -32,7 +36,8 @@ function App() {
         <h4>{title[2]}</h4>
         <p>content</p>
       </div>
-      <Modal />
+      <button onClick={handleModal}>modal button</button>
+      {modal == true ? <Modal /> : null}
     </div>
   );
 }
