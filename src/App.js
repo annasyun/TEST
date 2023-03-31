@@ -7,10 +7,6 @@ function App() {
   let [modal, setModal] = useState(false);
   let [titleNumber, setTitleNumber] = useState(0);
 
-  const handleModal = () => {
-    setModal(!modal);
-  };
-
   return (
     <div className="App">
       <div className="black-nav">
@@ -22,7 +18,7 @@ function App() {
           <div className="list" key={i}>
             <h4
               onClick={() => {
-                handleModal();
+                setModal(true);
                 setTitleNumber(i);
               }}
             >
@@ -43,7 +39,12 @@ function App() {
         );
       })}
       {modal == true ? (
-        <Modal titleNumber={titleNumber} background={"yellow"} title={title} />
+        <Modal
+          setTitle={setTitle}
+          titleNumber={titleNumber}
+          background={"yellow"}
+          title={title}
+        />
       ) : null}
     </div>
   );
@@ -55,6 +56,10 @@ function Modal(props) {
       <h4>{props.title[props.titleNumber]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button onClick={()=>{
+        let titleCopy = [...props.title];
+        titleCopy[0] = '변경나라'
+        props.setTitle(titleCopy)}}>글수정</button>
     </div>
   );
 }
