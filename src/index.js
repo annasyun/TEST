@@ -1,5 +1,4 @@
 import React from "react";
-// import ReactDOM from 'react-dom'; //구버전
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/router";
